@@ -17,6 +17,9 @@ void main() {
     expect(find.text('AM 730'), findsWidgets);
     expect(find.text('Toque para ouvir'), findsOneWidget);
     expect(find.byKey(const Key('live-play-button')), findsOneWidget);
+    expect(find.byKey(const Key('live-waves-paused')), findsOneWidget);
+    expect(find.byKey(const Key('live-equalizer-paused')), findsOneWidget);
+    expect(find.byKey(const Key('play-button-static')), findsOneWidget);
   });
 
   testWidgets('aciona player e reflete reprodução', (tester) async {
@@ -29,6 +32,16 @@ void main() {
     player.emit(const PlaybackSnapshot(PlaybackStatus.playing));
     await tester.pump();
     expect(find.text('Transmitindo ao vivo'), findsOneWidget);
+    expect(find.byKey(const Key('live-waves-playing')), findsOneWidget);
+    expect(find.byKey(const Key('live-equalizer-playing')), findsOneWidget);
+    expect(find.byKey(const Key('play-button-animated')), findsOneWidget);
+
+    await tester.pump(const Duration(milliseconds: 200));
+    await tester.tap(find.byKey(const Key('live-play-button')));
+    await tester.pump();
+    expect(find.byKey(const Key('live-waves-paused')), findsOneWidget);
+    expect(find.byKey(const Key('live-equalizer-paused')), findsOneWidget);
+    expect(find.byKey(const Key('play-button-static')), findsOneWidget);
   });
 
   testWidgets('exibe falha e permite tentar novamente', (tester) async {
