@@ -8,6 +8,13 @@ vivo em Android e iOS. O áudio usa o stream público exibido na página oficial
 Programação, notícias e perfil são dados demonstrativos. Isso é indicado na
 interface para não confundir protótipo com integração editorial pronta.
 
+## Documentação
+
+A documentação funcional e técnica completa está em
+[`docs/00-Inicio.md`](docs/00-Inicio.md). A pasta pode ser aberta diretamente no
+Obsidian e contém levantamento de requisitos, arquitetura, modelo de domínio,
+diagramas Mermaid, estratégia de testes, operação e roadmap.
+
 ## Escopo validado
 
 - Reprodução, pausa, carregamento, falha e nova tentativa.
